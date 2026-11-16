@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../utils/url';
+
+const cases = [
+  {
+    category: '근골격계',
+    title: '건설업 15년 근무 형틀목공',
+    company: '건설업 / 남성',
+    result: '산재 승인',
+    amount: '92,927,290원',
+    desc: '"나이가 들어서 그렇겠지"라며 주저하셨으나, 의학적·법리적 쟁점 분석 및 인과관계 입증하여 산재 승인',
+    point: '장해급여 92,927,290원 수령',
+  },
+  {
+    category: '뇌심혈관',
+    title: '화물차주 급성심근경색',
+    company: '운송업 / 남성',
+    result: '유족급여 인정',
+    amount: '총 114,648,590원 + 매 월 연금 수령',
+    desc: '지병(고혈압)이 있으셨으나, 과로와 업무부담 가중요인 주장하여 산재 유족급여 인정',
+    point: '유족급여·장례비 포함 114,648,590원\n + 매 월 연금 수령',
+  },
+  {
+    category: '직업성 암',
+    title: '자동차 공업사 근로자 폐암',
+    company: '자동차 정비업 / 남성',
+    result: '산재 승인',
+    amount: '81,430,670원',
+    desc: '업무 내용·근무환경 정리, 직업환경연구원 자료 및 산업안전보건공단 자료 등 제출하여 업무 중 발암물질 노출 입증을 통해 폐암 승인',
+    point: '병원비·휴업급여 81,430,670원 수령',
+  },
+  {
+    category: '근골격계',
+    title: '도축업 근로자 어깨 회전근개 파열',
+    company: '도축업 / 남성',
+    result: '산재 승인',
+    amount: '95,447,910원',
+    desc: '어깨 부담이 극심한 장기간 도축 업무를 수행하면서 누적된 피로를 업무상 질병으로 인정.',
+    point: '병원비, 수술비, 휴업급여, 장해급여 등 95,447,910원 수령',
+  },
+  {
+    category: '소음성 난청',
+    title: '중공업 사상 작업자 소음성 난청',
+    company: '중공업 / 남성',
+    result: '산재 승인',
+    amount: '69,101,200원',
+    desc: '10년 이상 그라인더 사상 작업으로 인한 소음성 난청 주장. 70세 정도임에도 노인성이 아닌 산재로 인정.',
+    point: '장해급여 69,101,200원 수령',
+  },
+  {
+    category: '근골격계',
+    title: '제조업 무릎 관절증',
+    company: '제조업 / 남성',
+    result: '산재 승인',
+    amount: '124,786,110원',
+    desc: '부산, 함안, 김해 등 제조업 공장에서 장기간 제관 업무 수행. 일부 사업장이 4대보험 미가입 상태였으나, 각종 자료를 수집하여 근무사실을 입증하고 산재 승인.',
+    point: '휴업급여·장해급여 124,786,110원 수령',
+  },
+];
+---
+
+<Layout
+  title="성공사례"
+  description="하온 노동법률사무소 산재 성공사례 - 소음성 난청, 심뇌혈관, 근골격계, 직업성 암, 출퇴근재해"
+  keywords="산재승인사례, 산재성공사례, 장해급여, 유족급여, 산재보상금, 산재신청결과"
+>
+
+  <!-- 페이지 헤더 -->
+  <section class="bg-navy-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm text-gold-400 mb-2">
+        <a href={url("/")} class="hover:underline">홈</a>
+        <span class="mx-2">/</span>
+        <span>성공사례</span>
+      </div>
+      <h1 class="text-4xl font-black">성공사례</h1>
+      <p class="mt-3 text-gray-300 max-w-xl">
+        실제 사례를 통해 하온 노동법률사무소의 전문성을 확인하세요. 개인정보 보호를 위해 일부 내용은 변경하였습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cases grid -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cases.map((c) => (
+          <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+            <div class="bg-navy-900 px-5 py-3 flex items-center justify-between">
+              <span class="text-xs font-bold text-gold-400 tracking-wider">{c.category}</span>
+              <span class="text-xs font-semibold text-white/70 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {c.result}
+              </span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-bold text-navy-900 text-base mb-1">{c.title}</h3>
+              <p class="text-xs text-gray-400 mb-4">{c.company}</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
+              <div class="bg-stone-50 rounded-xl p-3.5 mb-3">
+                <p class="text-xs text-stone-600 font-medium whitespace-pre-line">{c.point}</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                <span class="text-xs text-gray-400">수령 금액</span>
+                <span class="text-base font-black text-gold-600">{c.amount}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="https://blog.naver.com/jswcpla/224054356423" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-semibold rounded-xl transition-colors text-sm">
+          전체 사례 보기
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 bg-navy-900 text-center text-white">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl font-black mb-3">나도 산재 신청이 가능할까요?</h2>
+      <p class="text-gray-300 mb-8 text-sm">불승인을 받으셨어도 포기하지 마세요. 함께 다시 검토해드립니다.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={url("/consulting")} class="inline-block px-10 py-4 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">
+          상담 신청
+        </a>
+        <a href="https://blog.naver.com/jswcpla/224054356423" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-10 py-4 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-bold rounded-xl transition-colors">
+          전체 사례 보기
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

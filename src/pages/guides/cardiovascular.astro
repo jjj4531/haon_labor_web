@@ -1,0 +1,134 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { url } from '../../utils/url';
+---
+
+<Layout title="심뇌혈관 질환 산재 가이드" description="과로·스트레스로 인한 심뇌혈관 질환 산재 신청 - 뇌경색, 심근경색, 뇌출혈 - 하온 노동법률사무소">
+
+  <section class="bg-navy-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm text-gold-400 mb-2">
+        <a href={url("/")} class="hover:underline">홈</a>
+        <span class="mx-2">/</span>
+        <a href={url("/specialty")} class="hover:underline">전문 분야</a>
+        <span class="mx-2">/</span>
+        <span>심뇌혈관 질환</span>
+      </div>
+      <h1 class="text-4xl font-black">심뇌혈관 질환</h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">
+        과로와 스트레스로 인한 뇌졸중, 심근경색도 산재입니다. 발병 전 업무 과부하를 입증하면 보상을 받을 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-4">과로사·과로 질환과 산재</h2>
+        <p class="text-gray-600 leading-loose mb-4">
+          뇌·심혈관 질환(뇌경색, 심근경색, 뇌출혈 등)이 업무상 과로나 극심한 스트레스로 발병·악화되면 산재로 인정받을 수 있습니다.
+          근로복지공단은 <strong class="text-navy-900">발병 전 12주간의 업무 부하량</strong>을 기준으로 심사합니다.
+        </p>
+        <div class="bg-red-50 border border-red-100 rounded-xl p-5 text-sm text-red-800">
+          <strong>핵심:</strong> 발병 전 12주간 주당 평균 60시간 초과 근무 또는 발병 전 1주 내 급격한 업무 변화가 있었다면 산재 인정 가능성이 높습니다.
+        </div>
+      </div>
+
+      <!-- Recognition criteria -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">산재 인정 기준</h2>
+        <div class="space-y-5">
+          {[
+            {
+              title: '만성 과로 (12주 기준)',
+              color: 'border-red-200 bg-red-50',
+              items: [
+                '발병 전 12주 동안 주당 평균 60시간 이상 근무',
+                '야간 근무, 교대 근무, 출장 빈도 높음',
+                '휴일 근무, 대기 시간 포함',
+              ],
+            },
+            {
+              title: '단기 과로 (1주 기준)',
+              color: 'border-orange-200 bg-orange-50',
+              items: [
+                '발병 전 1주일 내 일상 업무보다 30% 이상 업무 증가',
+                '극심한 긴장·흥분·공포·놀람 등 급격한 스트레스',
+                '예기치 않은 사고 처리, 긴급 업무 대응',
+              ],
+            },
+            {
+              title: '업무상 스트레스',
+              color: 'border-blue-200 bg-blue-50',
+              items: [
+                '직장 내 갈등, 따돌림, 폭행',
+                '직위 강등·해고 위협 등 극심한 심리적 압박',
+                '사고 목격, 재난 경험 등 외상',
+              ],
+            },
+          ].map((block) => (
+            <div class={`rounded-xl p-5 border ${block.color}`}>
+              <h3 class="font-bold text-gray-900 mb-3">{block.title}</h3>
+              <ul class="space-y-2">
+                {block.items.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Evidence -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">입증 핵심 자료</h2>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          {[
+            { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg>`, title: '근무 시간 입증', items: ['출퇴근 기록, 게이트 기록', '이메일·메신저 송수신 내역', '업무 일지, 결재 내역'] },
+            { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z"/><path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z"/><path d="M9.979 5.356a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.926-.08L4.69 10H4.5a.5.5 0 0 0 0 1H5a.5.5 0 0 0 .447-.276l.936-1.873 1.138 3.793a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h.5a.5.5 0 0 0 0-1h-.128z"/></svg>`, title: '의료 자료', items: ['입원 기록, 응급실 기록', '영상 판독 자료 (MRI/CT)', '기저 질환 관련 진료 기록'] },
+            { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg>`, title: '증인 진술', items: ['동료·상급자 진술서', '야근 목격자 확인서', '업무 지시 관련 증거'] },
+            { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>`, title: '디지털 증거', items: ['업무용 이메일 기록', '카카오톡·슬랙 업무 내역', '주말·야간 업무 기록'] },
+          ].map((box) => (
+            <div class="bg-gray-50 rounded-xl p-5">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-5 h-5 text-navy-700 shrink-0" set:html={box.icon}></span>
+                <h3 class="font-bold text-navy-900">{box.title}</h3>
+              </div>
+              <ul class="space-y-1.5">
+                {box.items.map((item) => (
+                  <li class="text-gray-600 flex items-center gap-2">
+                    <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-12">
+        <h3 class="font-bold text-amber-900 mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline mr-1.5 -mt-0.5" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/><path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/></svg> 주의: 기저 질환이 있어도 산재 가능합니다</h3>
+        <p class="text-sm text-amber-800 leading-relaxed">
+          고혈압, 당뇨, 고지혈증 등 기저 질환이 있더라도 업무로 인해 <strong>자연 경과 이상으로 악화</strong>된 경우 산재로 인정받을 수 있습니다.
+          기저 질환이 있다는 이유로 포기하지 마세요.
+        </p>
+      </div>
+
+      <div class="bg-navy-900 rounded-2xl p-8 text-center text-white">
+        <h2 class="text-2xl font-black mb-3">심뇌혈관 질환 무료 상담</h2>
+        <p class="text-gray-300 text-sm mb-6">발병 경위, 직전 근무 기록, 진단명을 말씀해 주시면 즉시 검토해드립니다.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={url("/consulting")} class="px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">온라인 상담 신청</a>
+          <a href="tel:050713281579" class="px-8 py-3.5 border border-white/30 hover:bg-white/10 font-semibold rounded-xl transition-colors">0507-1328-1579</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
