@@ -2,8 +2,12 @@
 
 > 산재 전문 공인노무사 — 하늘아래 모든 분들이 온전한 행복을 누릴 수 있도록
 
-**라이브 사이트:** https://haon_labor_web.pages.dev/ (Cloudflare Pages)  
-**GitHub Pages:** https://jjj4531.github.io/haon_labor_web/
+## 배포 환경
+
+| 환경 | 브랜치 | URL | 플랫폼 |
+|---|---|---|---|
+| **운영** | `main` | https://하온.com | Cloudflare Pages |
+| **개발** | `dev` | https://jjj4531.github.io/haon_labor_web | GitHub Pages |
 
 ---
 
@@ -29,7 +33,8 @@
 |---|---|
 | 프레임워크 | [Astro](https://astro.build/) v4 |
 | 스타일 | [Tailwind CSS](https://tailwindcss.com/) v3 |
-| 배포 | Cloudflare Pages (`cloudflare` 브랜치) / GitHub Pages (`main` 브랜치) |
+| 배포 (운영) | Cloudflare Pages (`main` 브랜치) |
+| 배포 (개발) | GitHub Pages (`dev` 브랜치) |
 
 ---
 
@@ -118,4 +123,57 @@ colors: {
   navy: { 700: '#1e3a5c', 800: '#142d4c', 900: '#0c1f35', 950: '#071526' },
   gold: { 400: '#e8c84a', 500: '#c9a227', 600: '#a8861e' },
 }
+```
+
+---
+
+## 배포 가이드
+
+### Cloudflare Pages (운영 환경)
+
+**초기 설정:**
+
+1. Cloudflare Dashboard > Pages > Create a project
+2. GitHub 저장소 연결: `jjj4531/haon_labor_web`
+3. 빌드 설정:
+   - **Production branch:** `main`
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Node version:** 20
+
+4. 환경 변수:
+   - `NODE_VERSION`: `20`
+
+5. 커스텀 도메인 연결:
+   - Settings > Custom domains
+   - `하온.com` 도메인 추가 및 DNS 설정
+
+**배포 방법:**
+- `main` 브랜치에 push하면 자동으로 Cloudflare Pages에 배포됩니다.
+
+### GitHub Pages (개발 환경)
+
+**초기 설정:**
+
+1. GitHub 저장소 Settings > Pages
+2. Source: **GitHub Actions**
+
+**배포 방법:**
+- `dev` 브랜치에 push하면 자동으로 GitHub Actions가 빌드하고 배포합니다.
+- URL: https://jjj4531.github.io/haon_labor_web
+
+---
+
+## 워크플로우
+
+```bash
+# 개발 작업
+git checkout dev
+# ... 작업 및 커밋 ...
+git push origin dev  # → GitHub Pages에 자동 배포 (개발 환경)
+
+# 운영 배포
+git checkout main
+git merge dev
+git push origin main  # → Cloudflare Pages에 자동 배포 (운영 환경)
 ```
